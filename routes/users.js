@@ -96,6 +96,7 @@ router.put('/update/:id', auth, async (req,res) => {
             return res.send({ error: 'Usuário já cadastrado! '});
         // se o usuário ainda nao for cadastrado
         const user = await Users.findByIdAndUpdate(req.params.id, req.body);
+        // realizando uma nova busca após a alteração para obter o usuário com as alterações
         const userChanged = await Users.findById(req.params.id);
         // impedindo o retorno da senha
         userChanged.password = undefined;
@@ -110,7 +111,7 @@ router.put('/update/:id', auth, async (req,res) => {
 router.delete('/delete/:id', auth, async (req,res) => {
     try {
         await Users.findByIdAndDelete(req.params.id);
-        return res.send({ error: 'Usuário removido!' });
+        return res.send({ error: 'Usuário removido com sucesso!' });
     }
     catch (err) {
         return res.send({ error: 'Erro ao remover usuário!' });

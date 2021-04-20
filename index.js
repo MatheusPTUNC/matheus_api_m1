@@ -16,6 +16,7 @@ const options = {
     poolSize: 5,
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    // removendo os warnings de function deprecated
     useFindAndModify: false
 };
 

@@ -1,3 +1,4 @@
+//setando para o mode de desenvolvimento
 const env = process.env.NODE_ENV || 'dev';
 
 const config = () => {
