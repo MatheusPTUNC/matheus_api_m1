@@ -9,14 +9,15 @@ const bodyParser = require('body-parser');
 const app = express();
 
 // criando a string de conexão com o MongoDB Atlas
-const url = 'sua_conexao_com_o_mongo_db_atlas'
+const url = 'mongodb+srv://emerson:mongodbdam21@cluster0.pfru1.mongodb.net/deliverydb?retryWrites=true&w=majority'
 
 // criando a constante com opções de conexão
-const options = { 
-    reconnectTries: Number.MAX_VALUE,
-    reconnectInterval: 500,
+const options = {
     poolSize: 5,
-    useNewUrlParser: true };
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false
+};
 
 // conectando ao banco de dados
 mongoose.connect(url,options);
@@ -31,7 +32,7 @@ mongoose.connection.on('connected', () => {
 
 // verificando erros de conexão
 mongoose.connection.on('error', (err) => {
-    console.log('Erro na conexão com o banco de dados: ' + err);
+    console.log(`Erro na conexão com o banco de dados:  ${err}`);
 });
 
 // verificando se ocorreu desconexão
