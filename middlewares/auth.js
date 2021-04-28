@@ -13,7 +13,7 @@ const auth = (req, res, next) => {
     // se o token foi recebido
     jwt.verify(
         tokenHeader,
-        // fazendo a importação da variável de ambiente que possui a chave para o token
+        // fazendo a importação da variável de ambiente da pasta config que possui a chave para o token
         config.jwtPass,
         (err, decoded) => {
             // se ocorrer erro na verificação do token

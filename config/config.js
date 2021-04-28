@@ -1,25 +1,29 @@
 //setando para o mode de desenvolvimento
 const env = process.env.NODE_ENV || 'dev';
+//NODE_ENV determina produção/desenvolvimento, env recebe valor configurado no node_env
 
 const config = () => {
     switch (env) {
+        //dev desenvolvimento
         case 'dev' :
             return {
-                dbString : 'mongodb+srv://emerson:mongodbdam21@cluster0.pfru1.mongodb.net/deliverydb?retryWrites=true&w=majority',
-                jwtPass : 'senha_para_o_token',
-                jwtExpires : '3d'
+                dbString : 'mongodb+srv://matheus:090401@cluster0.h8kve.mongodb.net/deliverydb?retryWrites=true&w=majority',
+                jwtPass : 'starwarsémelhorquestartrek',
+                jwtExpires : '1d'
             }
+            //hml homologação
         case 'hml' :
             return {
-                dbString : 'mongodb+srv://emerson:mongodbdam21@cluster0.pfru1.mongodb.net/deliverydb?retryWrites=true&w=majority',
-                jwtPass : 'senha_para_o_token',
-                jwtExpires : '3d'
+                dbString : 'mongodb+srv://matheus:090401@cluster0.h8kve.mongodb.net/deliverydb?retryWrites=true&w=majority',
+                jwtPass : 'starwarsémelhorquestartrek',
+                jwtExpires : '1d'
             }
+            //prod produção
         case 'prod' :
             return {
-                dbString : 'mongodb+srv://emerson:mongodbdam21@cluster0.pfru1.mongodb.net/deliverydb?retryWrites=true&w=majority',
-                jwtPass : 'senha_para_o_token',
-                jwtExpires : '3d'
+                dbString : 'mongodb+srv://matheus:090401@cluster0.h8kve.mongodb.net/deliverydb?retryWrites=true&w=majority',
+                jwtPass : 'starwarsémelhorquestartrek',
+                jwtExpires : '1d'
             }
     }
 };
